@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+    <a-scene cursor="rayOrigin: mouse">
+      <a-assets>
+        <a-asset-item id="buildings" src="assets/buildings.glb"></a-asset-item>
+        <a-asset-item id="board" src="assets/board.glb"></a-asset-item>
+        <a-asset-item id="x" src="assets/X.glb"></a-asset-item>
+        <a-asset-item id="o" src="assets/O.glb"></a-asset-item>
+      </a-assets>
+      <a-entity gltf-model="#buildings" scale="0.2 0.2 0.2" position="0 1 0"></a-entity>
+      <a-entity gltf-model="#board" scale="0.2 0.2 0.2" position="0 2.6 2.3"></a-entity>
+      <a-entity id="oModel" gltf-model="#o" scale="0.15 0.15 0.15" position="2 3.3 -11"
+                animation__mouseenter="property: scale; to: 0.18 0.18 0.18; dur: 200; startEvents: mouseenter;"
+                animation__mouseleave="property: scale; to: 0.15 0.15 0.15; dur: 200; startEvents: mouseleave;"
+                animation__mouseclick="property: position; to: 0 4.7 2.2; dur: 500; easing: easeInOutQuad; startEvents: click;"></a-entity>
+      <a-entity id="xModel" gltf-model="#x" scale="0.15 0.15 0.15" position="-2 3.3 -11"
+                animation__mouseenter="property: scale; to: 0.18 0.18 0.18; dur: 200; startEvents: mouseenter;"
+                animation__mouseleave="property: scale; to: 0.15 0.15 0.15; dur: 200; startEvents: mouseleave;"
+                animation__mouseclick="property: position; to: 0 2.6 2.2; dur: 500; easing: easeInOutQuad; startEvents: click;"></a-entity>
+                
+      <a-cylinder id="xButton" radius="0.1" height="0.2" position="-2 2.6 -11" color="white" opacity="100" spawn-xo-button animation__click="property: material.color; from: white; to: orange; dur: 100; startEvents: click;"></a-cylinder>
+      <a-cylinder id="oButton" radius="0.1" height="0.2" position="2 2.6 -11" color="white" opacity="100" spawn-xo-button animation__click="property: material.color; from: white; to: cyan; dur: 100; startEvents: click;"></a-cylinder>
+      <a-cylinder id="cleanButton" radius="0.1" height="0.2" position="0 1.6 -11" color="white" opacity="100" spawn-xo-button animation__click="property: material.color; from: white; to: red; dur: 100; startEvents: click;" clean-xo></a-cylinder>
+
+      <a-box id="cube1" scale="1.8 1.8 0.35" position="2.05 2.6 2.2" color="white" opacity="0"cube-position></a-box>
+      <a-box id="cube2" scale="1.8 1.8 0.35" position="2.05 4.7 2.2" color="white" opacity="0" cube-position></a-box>
+      <a-box id="cube3" scale="1.8 1.8 0.35" position="2.05 4.7 2.2" color="white" opacity="0" cube-position></a-box>
+      <a-box id="cube4" scale="1.8 1.8 0.35" position="0 2.6 2.2" color="white" opacity="0" cube-position></a-box>
+      <a-box id="cube5" scale="1.8 1.8 0.35" position="0 4.7 2.2" color="white" opacity="0" cube-position></a-box>
+      <a-box id="cube6" scale="1.8 1.8 0.35" position="0 6.8 2.2" color="white" opacity="0" cube-position></a-box>
+      <a-box id="cube7" scale="1.8 1.8 0.35" position="-2.05 2.6 2.2" color="white" opacity="0" cube-position></a-box>
+      <a-box id="cube8" scale="1.8 1.8 0.35" position="-2.05 4.7 2.2" color="white" opacity="0" cube-position></a-box>
+      <a-box id="cube9" scale="1.8 1.8 0.35" position="-2.05 6.8 2.2" color="white" opacity="0" cube-position></a-box>
+      <a-entity id="rig" position="0 3.5 -14" rotation="0 180 0" >
+        <a-entity camera look-controls wasd-controls position="0 0 0">
+          <a-cursor id="cursor" raycaster fuse="true" fusetimeout="3000" material="color: #BDEAFF;"></a-cursor>
+        </a-entity>
+      </a-entity>
+      <a-sky color="#000000"></a-sky>
+    </a-scene>
+  </body>
+</html>
